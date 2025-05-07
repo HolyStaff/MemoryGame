@@ -26,3 +26,10 @@ function checkForMatch(cell) {
         }
     }
 }
+
+function resetGame() {
+    for (let i = 0; i < document.getElementsByClassName("tile").length; i++) {
+        document.getElementsByClassName("tile")[i].style.backgroundColor = "white";
+    }
+    tiles = [];
+}
