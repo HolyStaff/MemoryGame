@@ -30,18 +30,28 @@ function checkForMatch(cell) {
 }
 
 function resetGame() {
-    for (let i = 0; i < document.getElementsByClassName("tile").length; i++) {
-        document.getElementsByClassName("tile")[i].style.backgroundColor = "white";
-    }
+    document.querySelectorAll(".tile").forEach((tile) => tile.remove());
     tiles = [];
+
+    generateRandomBoard();
 }
 
 function generateRandomBoard() {
+    let fruits = randomFruits();
+
     for (let i = 0; i < boardSize * boardSize; i++) {
         let tile = document.createElement("div");
         tile.classList.add("tile");
-        tile.textContent = i + 1;
+        tile.textContent = fruits[fruits.length - 1];
+        fruits.pop();
         tile.addEventListener("click", flipTile);
         document.querySelector(".grid-container").appendChild(tile);
     }
+}
+
+function randomFruits() {
+    let fruits = ["🍌", "🍎", "🍒", "🍓", "🍉", "🍊", "🍋", "🍇"];
+    fruits = fruits.slice(0, boardSize * 2);
+    let doubleFruits = fruits.concat(fruits);
+    return doubleFruits.sort(() => Math.random() - 0.5);
 }
