@@ -1,11 +1,15 @@
 let boardSize = 4;
 
-function flipTile(cell) {
-    if (cell.style.backgroundColor === "green") {
+document.addEventListener("DOMContentLoaded", generateRandomBoard);
+
+function flipTile(tile) {
+    console.log("Mr. White yo!")
+    console.log(tile);
+    if (tile.style.backgroundColor === "green") {
         return;
     }
-    cell.style.backgroundColor = "red";
-    checkForMatch(cell);
+    tile.style.backgroundColor = "red";
+    checkForMatch(tile);
 }
 
 let tiles = [];
@@ -42,9 +46,10 @@ function generateRandomBoard() {
     for (let i = 0; i < boardSize * boardSize; i++) {
         let tile = document.createElement("div");
         tile.classList.add("tile");
+        tile.style.backgroundColor = "white";
         tile.textContent = fruits[fruits.length - 1];
         fruits.pop();
-        tile.addEventListener("click", flipTile);
+        tile.addEventListener("click", () => flipTile(tile));
         document.querySelector(".grid-container").appendChild(tile);
     }
 }
