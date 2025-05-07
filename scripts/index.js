@@ -1,4 +1,4 @@
-let tiles = [];
+let boardSize = 4;
 
 function flipTile(cell) {
     if (cell.style.backgroundColor === "green") {
@@ -7,6 +7,8 @@ function flipTile(cell) {
     cell.style.backgroundColor = "red";
     checkForMatch(cell);
 }
+
+let tiles = [];
 
 function checkForMatch(cell) {
     if (tiles.length < 2) {
@@ -32,4 +34,14 @@ function resetGame() {
         document.getElementsByClassName("tile")[i].style.backgroundColor = "white";
     }
     tiles = [];
+}
+
+function generateRandomBoard() {
+    for (let i = 0; i < boardSize * boardSize; i++) {
+        let tile = document.createElement("div");
+        tile.classList.add("tile");
+        tile.textContent = i + 1;
+        tile.addEventListener("click", flipTile);
+        document.querySelector(".grid-container").appendChild(tile);
+    }
 }
