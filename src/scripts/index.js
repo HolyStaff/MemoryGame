@@ -1,11 +1,13 @@
 let boardSize = 4;
 
+let cooldown = false;
+
 document.addEventListener("DOMContentLoaded", generateRandomBoard);
 
 function flipTile(tile) {
     console.log("Mr. White yo!")
     console.log(tile);
-    if (tile.style.backgroundColor === "green") {
+    if (tile.style.backgroundColor === "green" || cooldown) {
         return;
     }
     tile.style.backgroundColor = "red";
@@ -14,20 +16,27 @@ function flipTile(tile) {
 
 let tiles = [];
 
+let counter = 0;
+let scoreCounter = document.getElementById("counter").textContent;
+
 function checkForMatch(cell) {
     if (tiles.length < 2) {
         tiles.push(cell);
         if (tiles.length === 2) {
-            if (tiles[0].textContent === tiles[1].textContent) {
+            if (tiles[0].textContent === tiles[1].textContent && tiles[0] !== tiles[1]) {
                 tiles[0].style.backgroundColor = "green";
                 tiles[1].style.backgroundColor = "green";
                 tiles = [];
+                counter++;
+                scoreCounter.write(counter);
                 return;
             }
+            cooldown = true;
             setTimeout(() => {
                 tiles[0].style.backgroundColor = "white";
                 tiles[1].style.backgroundColor = "white";
                 tiles = [];
+                cooldown = false;
             }, 1000);
         }
     }
