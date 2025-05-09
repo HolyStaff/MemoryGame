@@ -28,7 +28,7 @@ function checkForMatch(cell) {
                 tiles[1].style.backgroundColor = "green";
                 tiles = [];
                 counter++;
-                scoreCounter.write(counter);
+                document.getElementById("counter").textContent = String(counter);
                 return;
             }
             cooldown = true;

@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>This shit is Bananas! 🍌</title>
-    <script src="/src/scriptsipts/index.js"></script>
-    <link rel="stylesheet" href="/src/stylesyles/style.css">
+    <script src="/src/scripts/index.js"></script>
+    <link rel="stylesheet" href="/src/styles/style.css">
 </head>
 <body>
-    <div class="grid-container">
+    <div class="game">
+        <h1>Memory</h1>
+        <p>Time left: <span id="tileTimer">0</span></p>
+        <div class="grid-container"></div>
+        <button class="reset-button" onclick="resetGame()">Reset</button>
     </div>
-    <button class="reset-button" onclick="resetGame()">Reset</button>
+    <div class="leaderboard">
+        <h1>Leaderboard</h1>
+        <ul id="leaderboard-list"></ul>
+    </div>
+    <div class="stats">
+        <h1>Stats</h1>
+        <p>Score: <span id="counter">0</span></p>
+        <p>Time: <span id="timer">0</span></p>
+        <p>Matches found: <span id="matches"></span></p>
+    </div>
 </body>
 </html>
