@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type='text'] {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    const id = setInterval( () => console.log('harald'), 1_000)
+    setTimeout( () => clearInterval(id), 10_000 )
+    </script>
+
+    <div id="demo" class="demo">
+        <div class="demo">0</div>
+        <div class="demo">1</div>
+        <div class="demo">2</div>
+        <div class="demo">3</div>
+        <div class="demo">4</div>
+        <div class="demo">5</div>
+        <div class="demo">6</div>
+        <div class="demo">7</div>
+        <div class="demo">8</div>
+    </div>
+    <form action="">
+        <input type="text" placeholder="Harald">
+        <input type="data">
+        <input type="number">
+        <input type="file">
+    </form>
+
+    <script>
+        // const d1 = [3, 1, 4, 1, 5]
+        // const d2 = d1.map(harald => harald**2);
+        // const d3 = d1.filter(harald => harald % 2 === 0);
+        // const d4 = d1.reduce((acc, harald) => acc + harald);
+        //
+        // console.log(d1);
+        // console.log(d2);
+        // console.log(d3);
+        // console.log(d4);
+
+        const demo1 = document.getElementById('demo');
+        console.log([...document.querySelectorAll('.demo')])
+        console.log(document.querySelector('input[type="text"]'));
+        document.getElementsByTagName('div');
+        document.querySelector('.demo');
+        const els = Array.from(document.getElementsByClassName('demo'));
+        // console.log(els);
+        // console.log(demo1);
+
+        const data = [3,1,4,1,5,9,2,6];
+
+        // els.forEach(el => console.log(el));
+    </script>
+</body>
+</html>

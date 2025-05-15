@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", generateRandomBoard);
 function flipTile(tile) {
     console.log("Mr. White yo!")
     console.log(tile);
-    if (tile.style.backgroundColor === "green" || cooldown) {
+    if (tile.style.backgroundColor === "green" || cooldown || tile.style.backgroundColor === "red") {
         return;
     }
     tile.style.backgroundColor = "red";
@@ -45,11 +45,13 @@ function checkForMatch(cell) {
 function resetGame() {
     document.querySelectorAll(".tile").forEach((tile) => tile.remove());
     tiles = [];
-
+    counter = 0;
+    document.getElementById("counter").textContent = String(counter);
     generateRandomBoard();
 }
 
 function generateRandomBoard() {
+
     let fruits = randomFruits();
 
     for (let i = 0; i < boardSize * boardSize; i++) {
